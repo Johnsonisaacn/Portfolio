@@ -1,53 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>drnklog App Showcase</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-tile {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>drnklog App Showcase</h1>
-    <p>A React Native app for tracking beverages, built with Expo and Firebase.</p>
-    <p>Users can add, edit, and delete entries beer, coffee, or wine. Running at https://drnklog.web.app/</p>
-  </header>
+    <div class="container">
+        <header>
+            <h1>My Projects Portfolio</h1>
+            <p class="subtitle">Showcasing my work in software development and IoT projects</p>
+        </header>
 
-  <main>
-    <section class="gallery">
-        <div class="image-container">
-            <img src="images/app-landing.png" alt="Landing Screen">
-            <p>Landing Page: User can sign up or log in</p>
-        </div>
-        <div class="image-container">
-            <img src="images/app-sign-up.png" alt="Signup Screen">
-            <p>Sign Up: New users can sign up using email and password</p>
-        </div>
-      <div class="image-container">
-        <img src="images/app-home.png" alt="Home Screen">
-        <p>Home Screen: View your beverage log.</p>
-      </div>
-      <div class="image-container">
-        <img src="images/app-log.png" alt="Beverage Log">
-        <p>Beverage Log: See all your entries.</p>
-      </div>
-      <div class="image-container">
-        <img src="images/app-add-entry.png" alt="Add Entry">
-        <p>Add Entry: Log a new beverage.</p>
-      </div>
-      <div class="image-container">
-        <img src="images/app-view-entry.png" alt="View Entry">
-        <p>View Entry: See details of a specific entry.</p>
-      </div>
-      <div class="image-container">
-        <img src="images/app-edit-entry.png" alt="Edit Entry">
-        <p>Edit Entry: Modify an existing entry.</p>
-      </div>
-    </section>
-  </main>
+        <div class="projects-grid">
+            <a href="drnklog.html" class="project-tile">
+                <div class="project-icon">🍺</div>
+                <h2 class="project-title">Drnklog App</h2>
+                <p class="project-description">
+                    A beverage tracking application that helps you monitor your drinking habits 
+                    and stay hydrated with insightful analytics and reminders.
+                </p>
+            </a>
 
-  <footer>
-    <p>© 2025 Isaac Johnson. Built with ❤️ and ☕.</p>
-  </footer>
+            <a href="wildfire.html" class="project-tile">
+                <div class="project-icon">🔥</div>
+                <h2 class="project-title">Wildfire Detector</h2>
+                <p class="project-description">
+                    An IoT-based early wildfire detection system using Raspberry Pi, sensors, 
+                    and machine learning to monitor environmental conditions and alert authorities.
+                </p>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 My Projects Portfolio. Built with passion and code.</p>
+        </footer>
+    </div>
 </body>
 </html>
