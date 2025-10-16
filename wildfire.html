@@ -101,7 +101,7 @@
 
         .image-placeholder {
             width: 100%;
-            height: 200px;
+            height: 500px;
             background: #e9ecef;
             border-radius: 8px;
             display: flex;
@@ -150,8 +150,7 @@
             <h1>Wildfire Detector</h1>
             <p class="project-summary">
                 An advanced IoT solution for early wildfire detection using Raspberry Pi, 
-                environmental sensors, and machine learning algorithms to monitor and alert 
-                about potential fire hazards in real-time.
+                Pi Camera 2 Module, and OpenCV.
             </p>
         </header>
 
@@ -159,30 +158,11 @@
             <h2>Project Overview</h2>
             <p>
                 The Wildfire Detector is a comprehensive system designed to provide early 
-                warnings for potential wildfires by monitoring key environmental factors. 
-                Using a combination of temperature, humidity, air quality, and smoke sensors, 
-                the system analyzes data in real-time and can send alerts to authorities 
-                when dangerous conditions are detected.
+                warnings for potential wildfires by monitoring an area using the Pi Camera 2. 
+                The system analyzes photos taken at regular intervals and uses a trained model
+                to predict if there is a wildfire, which it will send alerts to an end user's
+                email address when a fire is detected.
             </p>
-            
-            <div class="features-grid">
-                <div class="feature-item">
-                    <strong>Real-time Monitoring</strong>
-                    <p>Continuous environmental data collection and analysis</p>
-                </div>
-                <div class="feature-item">
-                    <strong>Early Detection</strong>
-                    <p>Machine learning algorithms identify potential fire risks</p>
-                </div>
-                <div class="feature-item">
-                    <strong>Remote Alerts</strong>
-                    <p>Instant notifications to emergency services</p>
-                </div>
-                <div class="feature-item">
-                    <strong>Solar Powered</strong>
-                    <p>Sustainable operation in remote locations</p>
-                </div>
-            </div>
         </div>
 
         <div class="content-section">
@@ -190,27 +170,27 @@
             <div class="image-gallery">
                 <div class="image-item">
                     <div class="image-placeholder">
-                        <img src="images/training.png" alt="Description" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <img src="images/training.png" alt="Description" >
                     </div>
                     <div class="image-label">Training</div>
                 </div>
                 <div class="image-item">
                     <div class="image-placeholder">
-                        <img src="images/classification_report.png" alt="Description" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                        <img src="images/classification_report.png" alt="Description">
                     </div>
                     <div class="image-label">Classification Report</div>
                 </div>
                 <div class="image-item">
                     <div class="image-placeholder">
-                        [Dashboard Screenshot]
+                        <img src="images/r_pi_setup.jpg" alt="Description">
                     </div>
-                    <div class="image-label">Monitoring Dashboard</div>
+                    <div class="image-label">Hardware Setup</div>
                 </div>
                 <div class="image-item">
                     <div class="image-placeholder">
-                        [Deployment Photo]
+                        <img src="images/alert.png" alt="Description">
                     </div>
-                    <div class="image-label">Field Deployment</div>
+                    <div class="image-label">Alert Example</div>
                 </div>
             </div>
         </div>
@@ -228,9 +208,7 @@
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">OpenCV</span>
                 <span class="tech-tag">TensorFlow</span>
-                <span class="tech-tag">MQTT</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">Linux</span>
+                <span class="tech-tag">SMTP</span>
             </div>
         </div>
 
