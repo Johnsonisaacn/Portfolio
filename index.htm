@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac Johnson | Systems & Cloud Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        steel: {
+                            50: '#f4f5f6',
+                            100: '#e6e8eb',
+                            200: '#d0d4da',
+                            300: '#adb4bf',
+                            400: '#838d9e',
+                            500: '#636d7e',
+                            600: '#4b5362',
+                            700: '#3c424f',
+                            800: '#262931',
+                            900: '#17191e',
+                            950: '#0e0f12',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            400: '#fbbf24',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0f12;
+            color: #d0d4da;
+        }
+
+        /* Industrial Grid Pattern Background */
+        .bg-grid-pattern {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Technical Corner Markers */
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::before, .tech-border::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-color: #636d7e;
+            pointer-events: none;
+        }
+        .tech-border::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid #838d9e;
+            border-left: 2px solid #838d9e;
+        }
+        .tech-border::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid #838d9e;
+            border-right: 2px solid #838d9e;
+        }
+
+        /* Tab Transition */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-steel-950 text-steel-200 bg-grid-pattern flex flex-col justify-between selection:bg-steel-700 selection:text-white">
+
+    <!-- Top Technical Header Navbar -->
+    <header class="border-b border-steel-800 bg-steel-950/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand / Identification -->
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-amber-500 animate-pulse"></div>
+                <a href="#landing" onclick="switchTab('landing')" class="font-mono text-sm tracking-wider uppercase font-bold text-steel-100 hover:text-white">
+                    IJ_SYS // <span class="text-steel-400 font-normal">ISAAC_JOHNSON</span>
+                </a>
+            </div>
+
+            <!-- Main Navigation Links -->
+            <nav class="flex items-center space-x-1 sm:space-x-4 font-mono text-xs sm:text-sm">
+                <button onclick="switchTab('landing')" id="nav-landing" class="nav-btn px-3 py-1.5 border border-transparent text-steel-400 hover:text-steel-100 transition-colors">
+                    01.INDEX
+                </button>
+                <button onclick="switchTab('cloud')" id="nav-cloud" class="nav-btn px-3 py-1.5 border border-transparent text-steel-400 hover:text-steel-100 transition-colors">
+                    02.CLOUD
+                </button>
+                <button onclick="switchTab('computer-vision')" id="nav-computer-vision" class="nav-btn px-3 py-1.5 border border-transparent text-steel-400 hover:text-steel-100 transition-colors">
+                    03.VISION
+                </button>
+                <a href="./INJ-Resume-11-8-26.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-steel-700 text-steel-200 hover:border-steel-400 hover:bg-steel-900 transition-all flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                    <span>RESUME.PDF</span>
+                </a>
+            </nav>
+        </div>
+        <!-- Status Bar Subheader -->
+        <div class="border-t border-steel-900 bg-steel-900/40 py-1 px-4 text-[10px] font-mono text-steel-500 flex justify-between items-center max-w-7xl mx-auto">
+            <span>LOC: AWS_US_WEST_2</span>
+            <span>STATUS: ONLINE</span>
+            <span class="hidden sm:inline">SYS_VER: 2026.4</span>
+        </div>
+    </header>
+
+    <!-- Main Content Area Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+        <!-- ================= PAGE 1: INDEX / LANDING ================= -->
+        <section id="landing" class="tab-content">
+            <div class="max-w-4xl space-y-12 py-8">
+                
+                <!-- Headline Card -->
+                <div class="tech-border bg-steel-900/40 border border-steel-800 p-6 sm:p-10 backdrop-blur-sm">
+                    <div class="font-mono text-xs text-steel-500 mb-4 tracking-widest uppercase">// SYSTEM ARCHITECT & SOFTWARE ENGINEER</div>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-steel-50 leading-tight font-sans">
+                        Isaac Johnson &mdash; engineer bringing experience in <span class="text-steel-300 underline decoration-steel-600 underline-offset-8">aerospace</span>, <span class="text-steel-300 underline decoration-steel-600 underline-offset-8">software development</span>, and <span class="text-steel-300 underline decoration-steel-600 underline-offset-8">AWS cloud operations</span>.
+                    </h1>
+                    <div class="mt-8 flex flex-wrap gap-4 pt-4 border-t border-steel-800/80">
+                        <a href="INJ-Resume-11-8-26.pdf" target="_blank" class="px-5 py-2.5 bg-steel-100 text-steel-950 font-mono text-xs font-bold tracking-wider hover:bg-white transition-all flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            VIEW RESUME (.PDF)
+                        </a>
+                        <button onclick="switchTab('cloud')" class="px-5 py-2.5 border border-steel-700 text-steel-300 font-mono text-xs font-semibold hover:border-steel-400 hover:text-white transition-all">
+                            EXPLORE CLOUD PROJECTS &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Core Competencies Matrix -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Tech Block 1 -->
+                    <div class="border border-steel-800 bg-steel-900/20 p-6">
+                        <div class="text-steel-400 mb-3"><i data-lucide="rocket" class="w-6 h-6"></i></div>
+                        <h3 class="font-mono text-sm font-bold text-steel-100 mb-2">AEROSPACE SYSTEMS</h3>
+                        <p class="text-xs text-steel-400 leading-relaxed">High-reliability software architecture, embedded controls, flight dynamics simulations, and mission-critical system design.</p>
+                    </div>
+                    <!-- Tech Block 2 -->
+                    <div class="border border-steel-800 bg-steel-900/20 p-6">
+                        <div class="text-steel-400 mb-3"><i data-lucide="cloud" class="w-6 h-6"></i></div>
+                        <h3 class="font-mono text-sm font-bold text-steel-100 mb-2">AWS CLOUD OPS</h3>
+                        <p class="text-xs text-steel-400 leading-relaxed">Serverless infrastructure, AWS Lambda orchestrations, IAM security policies, Terraform IaC, and cloud performance optimization.</p>
+                    </div>
+                    <!-- Tech Block 3 -->
+                    <div class="border border-steel-800 bg-steel-900/20 p-6">
+                        <div class="text-steel-400 mb-3"><i data-lucide="eye" class="w-6 h-6"></i></div>
+                        <h3 class="font-mono text-sm font-bold text-steel-100 mb-2">COMPUTER VISION</h3>
+                        <p class="text-xs text-steel-400 leading-relaxed">Edge vision pipelines, visual object detection, image classification models, and real-time spatial processing algorithms.</p>
+                    </div>
+                </div>
+
+                <!-- Featured Nav Quick Links -->
+                <div class="border-t border-steel-800 pt-8">
+                    <h2 class="font-mono text-xs text-steel-500 uppercase tracking-widest mb-4">// QUICK NAV MODULES</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div onclick="switchTab('cloud')" class="cursor-pointer group border border-steel-800 hover:border-steel-600 bg-steel-900/30 p-5 transition-all flex justify-between items-center">
+                            <div>
+                                <span class="font-mono text-[10px] text-steel-500">MODULE 01</span>
+                                <h4 class="font-mono text-sm font-semibold text-steel-200 group-hover:text-amber-400 transition-colors">Climate Analysis Lambda Function</h4>
+                                <p class="text-xs text-steel-400 mt-1">AWS Cloud / Serverless Data Pipeline</p>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-steel-600 group-hover:text-steel-200 transition-colors"></i>
+                        </div>
+
+                        <div onclick="switchTab('computer-vision')" class="cursor-pointer group border border-steel-800 hover:border-steel-600 bg-steel-900/30 p-5 transition-all flex justify-between items-center">
+                            <div>
+                                <span class="font-mono text-[10px] text-steel-500">MODULE 02</span>
+                                <h4 class="font-mono text-sm font-semibold text-steel-200 group-hover:text-amber-400 transition-colors">Computer Vision Showcase</h4>
+                                <p class="text-xs text-steel-400 mt-1">Image Analytics & Neural Grids</p>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-steel-600 group-hover:text-steel-200 transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: CLOUD SECTION ================= -->
+        <section id="cloud" class="tab-content">
+            <div class="max-w-5xl space-y-8 py-4">
+                
+                <!-- Section Header -->
+                <div class="border-b border-steel-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <span class="font-mono text-xs text-amber-500">// AWS CLOUD ARCHITECTURE</span>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-steel-100 font-mono mt-1">Climate Analysis Lambda Function</h1>
+                    </div>
+                    <!-- GitHub Link Button -->
+                    <a href="https://github.com/Johnsonisaacn/CS79C_Portfolio" target="_blank" rel="noopener noreferrer" class="self-start md:self-auto px-4 py-2 border border-steel-700 bg-steel-900 hover:bg-steel-800 text-steel-200 font-mono text-xs transition-all flex items-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>REPOS / GITHUB PAGE</span>
+                    </a>
+                </div>
+
+                <!-- Technical Description Box -->
+                <div class="tech-border border border-steel-800 bg-steel-900/40 p-6">
+                    <h3 class="font-mono text-xs text-steel-400 uppercase tracking-wider mb-3">// SYSTEM DESCRIPTION & SPECIFICATIONS</h3>
+                    <div class="text-sm text-steel-300 space-y-3 leading-relaxed">
+                        <p>
+                            This application uses S3 to store CSV files with NOAA climate data. Updloading files to the bucket triggers an SQS queue that operates the Lambda function to process the data in the CSV file and generate a .txt file report, stored in S3, and metadata, stored in DynamoDB.
+                        </p>
+                        <p>
+                            Key features include parallel compute execution for high-frequency environmental telemetry, automated metric calculation, and low-latency storage formatting for downstream data visualizations.
+                        </p>
+                    </div>
+                    <!-- Metadata Tags -->
+                    <div class="mt-6 pt-4 border-t border-steel-800/60 flex flex-wrap gap-2 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">AWS Lambda</span>
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">Python</span>
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">S3 Triggers</span>
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">CloudWatch</span>
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">SQS</span>
+                        <span class="px-2.5 py-1 bg-steel-800 text-steel-300">DynamoDB</span>
+                    </div>
+                </div>
+
+                <!-- Architecture Diagram Section (.png Container) -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center font-mono text-xs text-steel-500">
+                        <span>// ARCHITECTURAL DIAGRAM (.PNG)</span>
+                        <span>FILE: climate_lambda_architecture.png</span>
+                    </div>
+                    
+                    <div class="tech-border border border-steel-800 bg-steel-950 p-2 sm:p-4 text-center">
+                        <div class="relative group min-h-[350px] flex items-center justify-center border border-dashed border-steel-800 bg-steel-900/20">
+                            <!-- Included PNG Image Element (Fallback placeholder rendered) -->
+                            <img src="./images/climate-analysis-architecture.png" 
+                                 alt="Climate Analysis Lambda Function Architecture Diagram" 
+                                 class="max-w-full h-auto object-contain mx-auto border border-steel-800 shadow-2xl"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x450/17191e/adb4bf?text=Architecture+Diagram+Placeholder';">
+                        </div>
+                        <div class="mt-2 text-left font-mono text-[11px] text-steel-500">
+                            FIG 1.0 &mdash; Event-driven telemetry processing pipeline architecture diagram.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: COMPUTER VISION SECTION ================= -->
+        <section id="computer-vision" class="tab-content">
+            <div class="max-w-6xl space-y-8 py-4">
+                
+                <!-- Section Header -->
+                <div class="border-b border-steel-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <span class="font-mono text-xs text-amber-500">// ALGORITHMS & EMBEDDED VISION</span>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-steel-100 font-mono mt-1">Raspberry Pi Computer Vision System</h1>
+                    </div>
+                    <!-- GitHub Link Button -->
+                    <a href="https://github.com/Johnsonisaacn/Wildfire-Detection" target="_blank" rel="noopener noreferrer" class="self-start md:self-auto px-4 py-2 border border-steel-700 bg-steel-900 hover:bg-steel-800 text-steel-200 font-mono text-xs transition-all flex items-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>REPOS / GITHUB PAGE</span>
+                    </a>
+                </div>
+
+                <!-- Overview Description Box -->
+                <div class="tech-border border border-steel-800 bg-steel-900/40 p-6">
+                    <h3 class="font-mono text-xs text-steel-400 uppercase tracking-wider mb-2">// PROJECT OVERVIEW & METRICS</h3>
+                    <div class="text-sm text-steel-300 space-y-2 leading-relaxed">
+                        <p>
+                            This project is a wildfire detection system that runs on a Raspberry Pi, analyzes photos taken with the Pi Camera using a computer vision model, and sends the user an alert email if the a fire is detected in a photo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vertical Single-Column Image & Description Sequence -->
+                <div class="space-y-6">
+                    <h3 class="font-mono text-xs text-steel-500 uppercase tracking-widest">// INSPECTION SAMPLES & CAPTIONS (VERTICAL FLOW)</h3>
+                    
+                    <div class="flex flex-col space-y-8 max-w-4xl mx-auto">
+                        
+                        <!-- Sample 1 Container: Dynamic Image & Description -->
+                        <div class="border border-steel-800 bg-steel-900/30 p-4 sm:p-6 tech-border space-y-4">
+                            <div class="flex justify-between items-center font-mono text-[11px] text-steel-500 border-b border-steel-800/80 pb-2">
+                                <span>IMG_01 // VERTICAL INFERENCE SAMPLE A</span>
+                                <span>RATIO: DYNAMIC (3:4)</span>
+                            </div>
+                            <div class="flex justify-center bg-steel-950 border border-steel-800 p-2 overflow-hidden">
+                                <img src="./images/r_pi_setup.jpg" 
+                                     alt="Vision Sample 1" 
+                                     class="max-w-full h-auto max-h-[650px] object-contain rounded-none">
+                            </div>
+                            <!-- Attached Description Box -->
+                            <div class="bg-steel-950 border border-steel-800 p-4 font-mono">
+                                <div class="text-xs font-bold text-amber-500 mb-1">// DESCRIPTION & ANNOTATION 01</div>
+                                <p class="text-xs text-steel-300 leading-relaxed">Here is the setup of the Raspberry Pi 4 and Pi Camera Module 2</p>
+                            </div>
+                        </div>
+
+                        <!-- Sample 2 Container: Dynamic Image & Description -->
+                        <div class="border border-steel-800 bg-steel-900/30 p-4 sm:p-6 tech-border space-y-4">
+                            <div class="flex justify-between items-center font-mono text-[11px] text-steel-500 border-b border-steel-800/80 pb-2">
+                                <span>IMG_02 // VERTICAL INFERENCE SAMPLE B</span>
+                                <span>RATIO: DYNAMIC (9:16)</span>
+                            </div>
+                            <div class="flex justify-center bg-steel-950 border border-steel-800 p-2 overflow-hidden">
+                                <img src="./images/alert.png" 
+                                     alt="Vision Sample 2" 
+                                     class="max-w-full h-auto max-h-[650px] object-contain rounded-none">
+                            </div>
+                            <!-- Attached Description Box -->
+                            <div class="bg-steel-950 border border-steel-800 p-4 font-mono">
+                                <div class="text-xs font-bold text-amber-500 mb-1">// DESCRIPTION & ANNOTATION 02</div>
+                                <p class="text-xs text-steel-300 leading-relaxed">The program will run and take a photo every 30 seconds, sending an alert email if the confidence level is above the threshold. If the program sends an alert email, it will trigger a cool down period of 5 minutes between email alerts to prevent the recipient email adress spam control from kicking in. The email alert includes the photo that triggered the alert, as seen in the example below:</p>
+                            </div>
+                        </div>
+
+                        <!-- Sample 3 Container: Dynamic Image & Description -->
+                        <div class="border border-steel-800 bg-steel-900/30 p-4 sm:p-6 tech-border space-y-4">
+                            <div class="flex justify-between items-center font-mono text-[11px] text-steel-500 border-b border-steel-800/80 pb-2">
+                                <span>IMG_03 // MEDIUM ASPECT SAMPLE C</span>
+                                <span>RATIO: DYNAMIC (4:5)</span>
+                            </div>
+                            <div class="flex justify-center bg-steel-950 border border-steel-800 p-2 overflow-hidden">
+                                <img src="./images/training.png" 
+                                     alt="Vision Sample 3" 
+                                     class="max-w-full h-auto max-h-[650px] object-contain rounded-none">
+                            </div>
+                            <!-- Attached Description Box -->
+                            <div class="bg-steel-950 border border-steel-800 p-4 font-mono">
+                                <div class="text-xs font-bold text-amber-500 mb-1">// DESCRIPTION & ANNOTATION 03</div>
+                                <p class="text-xs text-steel-300 leading-relaxed">The model was trained on the dataset found here https://www.kaggle.com/datasets/elmadafri/the-wildfire-dataset</p>
+                            </div>
+                        </div>
+
+                        <!-- Sample 4 Container: Dynamic Image & Description -->
+                        <div class="border border-steel-800 bg-steel-900/30 p-4 sm:p-6 tech-border space-y-4">
+                            <div class="flex justify-between items-center font-mono text-[11px] text-steel-500 border-b border-steel-800/80 pb-2">
+                                <span>IMG_04 // ULTRA-TALL INFERENCE SAMPLE D</span>
+                                <span>RATIO: DYNAMIC (1:2)</span>
+                            </div>
+                            <div class="flex justify-center bg-steel-950 border border-steel-800 p-2 overflow-hidden">
+                                <img src="./images/classification_report.png" 
+                                     alt="Vision Sample 4" 
+                                     class="max-w-full h-auto max-h-[650px] object-contain rounded-none">
+                            </div>
+                            <!-- Attached Description Box -->
+                            <div class="bg-steel-950 border border-steel-800 p-4 font-mono">
+                                <div class="text-xs font-bold text-amber-500 mb-1">// DESCRIPTION & ANNOTATION 04</div>
+                                <p class="text-xs text-steel-300 leading-relaxed">The training program is found on the Jupyter Notebook in the repo and trained on Kaggle using GPU T4 x 2 for 4 epochs</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Technical Minimalist Footer -->
+    <footer class="border-t border-steel-800 bg-steel-950 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-steel-500">
+            <div>
+                &copy; <span id="year">2026</span> ISAAC JOHNSON &bull; ENGINEERING PORTFOLIO
+            </div>
+            <div class="flex space-x-6 text-steel-400">
+                <a href="#landing" onclick="switchTab('landing')" class="hover:text-white">INDEX</a>
+                <a href="#cloud" onclick="switchTab('cloud')" class="hover:text-white">CLOUD</a>
+                <a href="#computer-vision" onclick="switchTab('computer-vision')" class="hover:text-white">VISION</a>
+                <a href="INJ-Resume-11-8-26.pdf" target="_blank" class="hover:text-white">RESUME</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client Script for Tab Navigation and Icons -->
+    <script>
+        // Render Lucide Icons
+        lucide.createIcons();
+
+        // Interactive Single-Page Router / Tab Switcher
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+
+            // Update Navbar active styles
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('border-steel-400', 'text-white', 'bg-steel-900');
+                btn.classList.add('border-transparent', 'text-steel-400');
+            });
+
+            const currentNavBtn = document.getElementById(`nav-${tabId}`);
+            if (currentNavBtn) {
+                currentNavBtn.classList.remove('border-transparent', 'text-steel-400');
+                currentNavBtn.classList.add('border-steel-400', 'text-white', 'bg-steel-900');
+            }
+
+            // Update URL Hash without reload
+            history.pushState(null, null, `#${tabId}`);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize Router based on URL hash or default to 'landing'
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (['landing', 'cloud', 'computer-vision'].includes(hash)) {
+                switchTab(hash);
+            } else {
+                switchTab('landing');
+            }
+        });
+
+        // Handle Back/Forward Browser Buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.replace('#', '') || 'landing';
+            switchTab(hash);
+        });
+    </script>
+</body>
+</html>
